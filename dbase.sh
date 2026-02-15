@@ -247,7 +247,7 @@ Restore_DataBase(){
                  fi
              fi
 }
-# Self-Installation Logic ----------------------------------------------
+#Over Restore_DataBase  --------------------------------------
 	TARGET="/usr/local/bin/dbase"
 
 	if [ "$0" != "$TARGET" ]; then
@@ -257,7 +257,7 @@ Restore_DataBase(){
     echo "Installation complete. You can now use 'dbase' from anywhere."
     # Optional: exit here so it doesn't run the rest of the script during install
     exit 0
-#Over Restore_DataBase  --------------------------------------
+#Over Self-Installation Logic ----------------------------------------------
 Clear_Table(){
 	 printf "Are you sure you want to Clearing Table $2? (y/n): "
      read confirm
@@ -268,6 +268,7 @@ Clear_Table(){
          echo "Operation cancelled."
      fi
 }
+#Over Clear_Table ----------------------------------------------------------------
 Test_DB() {
   DB_EXISTS=$(sudo -u "$DB_USER" $SQL -tAc \
   "SELECT 1 FROM pg_database WHERE datname='$2';")
