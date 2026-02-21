@@ -5,3 +5,4 @@ This is a lightweight tool I built for creating, managing, and having full contr
 
 It includes a self-installation routine that automatically moves the script to /usr/local/bin or create the file in /usr/local/bin manually , so once you've set the execution permissions with "chmod +x dbbasis.sh" and "dbbasis.sh",you can just run dbbasis as a global command from anywhere in your system. It’s designed to be simple, fast, and stay out of your way while you work.
 
+<img width="1920" height="1024" alt="image" src="https://github.com/user-attachments/assets/3b7b0bfa-050b-474f-9523-7c7cffede72b" />
