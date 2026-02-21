@@ -89,7 +89,7 @@ Edit_Element() {
     local tbl="$2"
     local target_id="$3"
     local current_time=$(date "+%Y-%m-%d %H:%M:%S")
-    current_data=$($RootMod $RootMetod $DB_USER $SQL -d "$db" -t -A -F'|' -c "SELECT * FROM \"$tbl\" WHERE id = '$target_id';")
+    current_data=$($RootMod $RootMetod $DB_USER $SQL -d "$db" -tUpdate -A -F'|' -c "SELECT * FROM \"$tbl\" WHERE id = '$target_id';")
     if [ -z "$current_data" ]; then
         echo "|"
         echo "| Error: Element with ID:$target_id not found."
@@ -790,7 +790,7 @@ case "$1" in
         echo "  -v                           Show version info"
         echo "  -a                           Show all Databases"
         echo "  [name]                       Show tables in Database"
-	    echo "  [name] -l [Limit]            Show tables in Database Table-Limit (Limit error -l none) "
+	    echo "  [name] -l [Limit]            Show tables in Database Table-Limit "
 	    echo "  [name] [Table]               Show tables in Database Table "
         echo "  [name] [Table] -c            Create Element"
 	    echo "  [name] [Table] --Searche     Searche Element  "
