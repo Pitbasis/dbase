@@ -199,7 +199,7 @@ Lmit_Element() {
            echo "  -------------OR------------"
            echo "  [name] [Table] -l [Limit]           Show tables in Database Table Element-Limit"
            echo ""
-           echo "db -h or help :D "  
+           echo "dbbasis -h or help :D "  
          else
            echo "--- DATA IN TABLE: $2 (Limit: $4 )(Database: $1) ---"
            $RootMod $RootMetod $DB_USER psql -d $1 -c "SELECT * FROM $2 LIMIT $4;"
@@ -208,9 +208,9 @@ Lmit_Element() {
 #Over Limet Element  -----------------------------------------
 Create_DataBase(){
 	if [ -z "$2" ]; then
-        echo "Error not have NAME_DB -> db [-c] [NAME_DB] --> CREATE DATABASE "
+        echo "Error not have NAME_DB -> dbbasis [-c] [NAME_DB] --> CREATE DATABASE "
         echo ""
-        echo "help... -> db [help] or [-h]"
+        echo "help... -> dbbasis [help] or [-h]"
     else
         echo "$2 Creating ... "
         $RootMod $RootMetod $DB_USER $SQL -c "CREATE DATABASE $2;"
@@ -248,13 +248,13 @@ Restore_DataBase(){
              fi
 }
 # Self-Installation Logic ----------------------------------------------
-	TARGET="/usr/local/bin/dbase"
+	TARGET="/usr/local/bin/dbbasis"
 
 	if [ "$0" != "$TARGET" ]; then
-    echo "Installing dbase to /usr/local/bin..."
+    echo "Installing dbbasis to /usr/local/bin..."
     sudo cp "$0" "$TARGET"
     sudo chmod +x "$TARGET"
-    echo "Installation complete. You can now use 'dbase' from anywhere."
+    echo "Installation complete. You can now use 'dbbasis' from anywhere."
     # Optional: exit here so it doesn't run the rest of the script during install
     exit 0
 #Over Restore_DataBase  --------------------------------------
@@ -282,7 +282,7 @@ Test_DB() {
         if [ "$TABLE_EXISTS_GET_N" != "1" ]; then
            echo "| Error ---->"                             
            echo "|"
-           echo "| dbase [$2] [$3]"
+           echo "| dbbasis [$2] [$3]"
            echo "|         OK        ERROR      NONE"
            echo "|___________________________________|"
            echo "| You specified a non-existent table|"
@@ -314,7 +314,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2]  -c [$3] '[Cols]'"
+              echo "| dbbasis [$2]  -c [$3] '[Cols]'"
               echo "|         OK         ERROR"
               echo "|_______________________________________________________|"
               echo "| A table with this name already existsts.              |"
@@ -325,7 +325,7 @@ Test_DB() {
          else
            echo "| Error ------>                                                                  "
            echo "|"
-           echo "|  dbase [$2] -c [$3] '[Cols]'"
+           echo "|  dbbasis [$2] -c [$3] '[Cols]'"
            echo "|         ERROR      NONE     NONE"
            echo "|__________________________________________|"
            echo "|  You specified a non-existent database.  |"
@@ -345,7 +345,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2]  [$3] -c"
+              echo "| dbbasis [$2]  [$3] -c"
               echo "|         OK      ERROR"
               echo "|_______________________________________________________|"
               echo "| A table with this name already existsts.              |"
@@ -356,7 +356,7 @@ Test_DB() {
          else
            echo "| Error ------>                                                                  "
            echo "|"
-           echo "|  dbase [$2] [$3] -c"
+           echo "|  dbbasis [$2] [$3] -c"
            echo "|         ERROR      NONE  "
            echo "|__________________________________________|"
            echo "|  You specified a non-existent database.  |"
@@ -376,7 +376,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2]  [$3] -s"
+              echo "| dbbasis [$2]  [$3] -s"
               echo "|         OK      ERROR"
               echo "|____________________________________|"
               echo "| You specified a non-existent table.|"
@@ -387,7 +387,7 @@ Test_DB() {
          else
            echo "| Error ------>                                                                  "
            echo "|"
-           echo "|  dbase [$2] [$3] -s"
+           echo "|  dbbasis [$2] [$3] -s"
            echo "|         ERROR     NONE"
            echo "|__________________________________________|"
            echo "|  You specified a non-existent database.  |"
@@ -407,7 +407,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2]  [$3] -l [Limit]"
+              echo "| dbbasis [$2]  [$3] -l [Limit]"
               echo "|         OK      ERROR"
               echo "|____________________________________|"
               echo "| You specified a non-existent table.|"
@@ -418,7 +418,7 @@ Test_DB() {
          else
            echo "| Error ------>                                                                  "
            echo "|"
-           echo "|  dbase [$2] [$3] -l [limit]"
+           echo "|  dbbasis [$2] [$3] -l [limit]"
            echo "|         ERROR     NONE"
            echo "|__________________________________________|"
            echo "|  You specified a non-existent database.  |"
@@ -438,7 +438,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2]  [$3] "
+              echo "| dbbasis [$2]  [$3] "
               echo "|         OK     ERROR"
               echo "|____________________________________|"
               echo "| You specified a non-existent table.|"
@@ -449,7 +449,7 @@ Test_DB() {
          else
            echo "| Error ------>                                                                  "
            echo "|"
-           echo "|  dbase [$2] [$3] "
+           echo "|  dbbasis [$2] [$3] "
            echo "|         ERROR     NONE"
            echo "|__________________________________________|"
            echo "|  You specified a non-existent database.  |"
@@ -469,7 +469,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2]  [$3] --Searche"
+              echo "| dbbasis [$2]  [$3] --Searche"
               echo "|         OK      ERROR"
               echo "|____________________________________|"
               echo "| You specified a non-existent table.|"
@@ -480,7 +480,7 @@ Test_DB() {
          else
            echo "| Error ------>                                                                  "
            echo "|"
-           echo "|  dbase [$2] [$3] --Searche"
+           echo "|  dbbasis [$2] [$3] --Searche"
            echo "|         ERROR    NONE"
            echo "|__________________________________________|"
            echo "|  You specified a non-existent database.  |"
@@ -500,7 +500,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2]  [$3] -e [id] "
+              echo "| dbbasis [$2]  [$3] -e [id] "
               echo "|         OK      ERROR"
               echo "|____________________________________|"
               echo "| You specified a non-existent table.|"
@@ -511,7 +511,7 @@ Test_DB() {
          else
            echo "| Error ------>                                                                  "
            echo "|"
-           echo "|  dbase [$2] [$3] -e [id] "
+           echo "|  dbbasis [$2] [$3] -e [id] "
            echo "|         ERROR    NONE"
            echo "|__________________________________________|"
            echo "|  You specified a non-existent database.  |"
@@ -531,7 +531,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2]  [$3] -id [id] "
+              echo "| dbbasis [$2]  [$3] -id [id] "
               echo "|         OK      ERROR"
               echo "|____________________________________|"
               echo "| You specified a non-existent table.|"
@@ -542,7 +542,7 @@ Test_DB() {
          else
            echo "| Error ------>                                                                  "
            echo "|"
-           echo "|  dbase [$2] [$3] -id [id] "
+           echo "|  dbbasis [$2] [$3] -id [id] "
            echo "|         ERROR    NONE"
            echo "|__________________________________________|"
            echo "|  You specified a non-existent database.  |"
@@ -562,7 +562,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2]  [$3] -d [id] "
+              echo "| dbbasis [$2]  [$3] -d [id] "
               echo "|         OK      ERROR"
               echo "|____________________________________|"
               echo "| You specified a non-existent table.|"
@@ -573,7 +573,7 @@ Test_DB() {
          else
            echo "| Error ------>                                                                  "
            echo "|"
-           echo "|  dbase [$2] [$3] -d [id] "
+           echo "|  dbbasis [$2] [$3] -d [id] "
            echo "|         ERROR    NONE"
            echo "|__________________________________________|"
            echo "|  You specified a non-existent database.  |"
@@ -609,7 +609,7 @@ Test_DB() {
           else 
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2] -dt [$3]"
+              echo "| dbbasis [$2] -dt [$3]"
               echo "|         OK           ERROR"
               echo "|____________________________________|"
               echo "| You specified a non-existent table.|"
@@ -620,7 +620,7 @@ Test_DB() {
        else
              echo "| Error ---->"
              echo "|"
-             echo "| dbase [$2] -dt [$3]"
+             echo "| dbbasis [$2] -dt [$3]"
              echo "|        ERROR         ERROR"
              echo "|_______________________________________|"
              echo "| You specified a non-existent database.|"
@@ -646,7 +646,7 @@ Test_DB() {
              else
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2] -rt [$3] [$4]"
+              echo "| dbbasis [$2] -rt [$3] [$4]"
               echo "|         OK        OK      ERROR"
               echo "|_______________________________________________________|"
               echo "| A table with this name already existsts.              |"
@@ -657,7 +657,7 @@ Test_DB() {
           else
               echo "| Error ---->"
               echo "|"
-              echo "| dbase [$2] -rt [$3] [$4]"
+              echo "| dbbasis [$2] -rt [$3] [$4]"
               echo "|         OK        ERROR      NONE"
               echo "|____________________________________|"
               echo "| You specified a non-existent table.|"
@@ -668,7 +668,7 @@ Test_DB() {
        else
              echo "| Error ---->"
              echo "|"
-             echo "| dbase [$2] -rt [$3] [$4]"
+             echo "| dbbasis [$2] -rt [$3] [$4]"
              echo "|        ERROR         NONE     NONE"
              echo "|_______________________________________|"
              echo "| You specified a non-existent database.|"
@@ -679,7 +679,7 @@ Test_DB() {
       else 
              echo "| Error ---->"
              echo "|"
-             echo "| dbase [$2] -rt [$3] [$4]"
+             echo "| dbbasis [$2] -rt [$3] [$4]"
              echo "|        NONE       NONE     NONE"
              echo "|_________________________________________|"
              echo "|                                         |"
@@ -700,7 +700,7 @@ Test_DB() {
            else
               echo "| Error ---->"
               echo "|"
-              echo "| dbase -r [$2] [$3]"
+              echo "| dbbasis -r [$2] [$3]"
               echo "|           OK      ERROR"
               echo "|_______________________________________________________|"
               echo "| A database with this name already existsts.           |"
@@ -711,7 +711,7 @@ Test_DB() {
         else
            echo "| Error ---->"
            echo "|"
-           echo "| dbase -r [$2] [$3]"
+           echo "| dbbasis -r [$2] [$3]"
            echo "|           ERROR  NONE"
            echo "|_______________________________________|"
            echo "| You specified a non-existent database.|"
@@ -722,7 +722,7 @@ Test_DB() {
       else
         echo "| Error ---->"
         echo "|"
-        echo "| dbase -r [$3] [$4]"
+        echo "| dbbasis -r [$3] [$4]"
         echo "|          NONE  NONE"
         echo "|_________________________________________|"
         echo "|                                         |"
@@ -798,7 +798,7 @@ case "$1" in
 	    echo "  [name] [Table] -d [id]       Delete (Drop) Element "
 	    echo "  [name] [Table] -e [id]       Edit Element"
         echo "  [name] [Table] -l [Limit]    Show tables in Database Table Elemnt-Limit"
-        echo "  [name] -c [Table] '[Cols]'   Create a new Table (dbase Databases -c Table 'id serial PRIMARY KEY, name varchar(255), email text')"
+        echo "  [name] -c [Table] '[Cols]'   Create a new Table (dbbasis Databases -c Table 'id serial PRIMARY KEY, name varchar(255), email text')"
         echo "  [name] [Table] -s            Structure of Table "
         echo "  [name] [Table] -clear        Clear in Table"
         echo "  [name] -dump                 Save your Database .sql "
@@ -807,9 +807,9 @@ case "$1" in
         ;;
     *)
         if [ -z "$1" ]; then
-            echo "ERROR. <-> db [NAME_DATABASE] -> GET DATABASE"
+            echo "ERROR. <-> dbbasis [NAME_DATABASE] -> GET DATABASE"
             echo ""
-            echo "help... -> db [help] or [-h]"
+            echo "help... -> dbbasis [help] or [-h]"
         elif [ -z "$2" ]; then
              Test_DB "*" "$1"
              echo " TABLES IN DATABASE $1 -->"
@@ -898,7 +898,7 @@ case "$1" in
         elif [ "$3" = "-c" ] && [ -n "$2" ]; then
              Test_DB "-CE" "$1" "$2"
              Create_Element "$1" "$2"
-             # dbase "$1" " $2"
+             # dbbasis "$1" " $2"
         fi
         
         ;;
