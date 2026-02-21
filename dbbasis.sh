@@ -9,18 +9,25 @@ RootMetod="-u"
 #or root (SuperUser) ---
 #RootMod=""
 #RootMetod=""
-Self-Installation Logic ----------------------------------------------
+# Self-Installation Logic ----------------------------------------------
 TARGET="/usr/local/bin/dbbasis"
+if [ "$0" != "$TARGET" ]; then
+    OS_TYPE=$(uname -s)
+    echo "Detected System: $OS_TYPE"
 
-	if [ "$0" != "$TARGET" ]; then
-     echo "Installing dbbasis to /usr/local/bin..."
-     sudo cp "$0" "$TARGET"
-     sudo chmod +x "$TARGET"
-     echo "Installation complete. You can now use 'dbbasis' from anywhere."
-     # Optional: exit here so it doesn't run the rest of the script during install
-    exit 0
-	fi
-	
+    # Both FreeBSD and most Linux distros use /usr/local/bin for third-party scripts
+    if [ "$OS_TYPE" = "FreeBSD" ] || [ "$OS_TYPE" = "Linux" ]; then
+        echo "Installing dbbasis to $TARGET..."
+        # Using sudo to ensure permissions for /usr/local/bin
+        sudo cp "$0" "$TARGET"
+        sudo chmod +x "$TARGET"
+        echo "Installation complete. You can now use 'dbbasis' from anywhere."
+        exit 0
+    else
+        echo "Unsupported OS for auto-install. Please copy the script manually."
+    fi
+fi
+
 ID_Search() {
  if [ -n "$3" ]; then
   $RootMod $RootMetod $DB_USER $SQL -d $1 -x -c "SELECT * FROM \"$2\" WHERE id = '$3';"
