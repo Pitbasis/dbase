@@ -9,7 +9,18 @@ RootMetod="-u"
 #or root (SuperUser) ---
 #RootMod=""
 #RootMetod=""
+Self-Installation Logic ----------------------------------------------
+TARGET="/usr/local/bin/dbbasis"
 
+	if [ "$0" != "$TARGET" ]; then
+     echo "Installing dbbasis to /usr/local/bin..."
+     sudo cp "$0" "$TARGET"
+     sudo chmod +x "$TARGET"
+     echo "Installation complete. You can now use 'dbbasis' from anywhere."
+     # Optional: exit here so it doesn't run the rest of the script during install
+    exit 0
+	fi
+	
 ID_Search() {
  if [ -n "$3" ]; then
   $RootMod $RootMetod $DB_USER $SQL -d $1 -x -c "SELECT * FROM \"$2\" WHERE id = '$3';"
@@ -19,6 +30,7 @@ ID_Search() {
   $RootMod $RootMetod $DB_USER $SQL -d $1 -x -c "SELECT * FROM \"$2\" WHERE id = '$search_id';"
  fi
 }
+
 #Over ID shearch Element -------------------------
 Search_Element() {
     local db="$1"
@@ -223,7 +235,7 @@ Renam_Database() {
         echo "Renaming database $2 to $3..."
         $RootMod $RootMetod $DB_USER $SQL -c "ALTER DATABASE $2 RENAME TO $3;"
 }
-#Over Renam_Database   ---------------------------------------
+#Over Rename_Database   ---------------------------------------
 Restore_DataBase(){
              FILE_PATH="$3"
              if [ -z "$FILE_PATH" ]; then
@@ -247,16 +259,7 @@ Restore_DataBase(){
                  fi
              fi
 }
-# Self-Installation Logic ----------------------------------------------
-	TARGET="/usr/local/bin/dbbasis"
 
-	if [ "$0" != "$TARGET" ]; then
-    echo "Installing dbbasis to /usr/local/bin..."
-    sudo cp "$0" "$TARGET"
-    sudo chmod +x "$TARGET"
-    echo "Installation complete. You can now use 'dbbasis' from anywhere."
-    # Optional: exit here so it doesn't run the rest of the script during install
-    exit 0
 #Over Restore_DataBase  --------------------------------------
 Clear_Table(){
 	 printf "Are you sure you want to Clearing Table $2? (y/n): "
@@ -268,6 +271,7 @@ Clear_Table(){
          echo "Operation cancelled."
      fi
 }
+
 Test_DB() {
   DB_EXISTS=$(sudo -u "$DB_USER" $SQL -tAc \
   "SELECT 1 FROM pg_database WHERE datname='$2';")
