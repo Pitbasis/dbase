@@ -1,4 +1,4 @@
-#dbbasis
+##dbbasis
 
 Dbbasis is a command-line tool for managing databases on FreeBSD and Linux. It functions as a zero-dependency script that provides direct control over database structures from the terminal without requiring a background engine or daemon. The tool includes a self-installation routine that moves the script to `/usr/local/bin` so it can be executed as a global command from any directory.
 
