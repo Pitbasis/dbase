@@ -1,8 +1,6 @@
-# dbbasis
-A lightweight FreeBSD/Linux tool for creating, managing, and having full control over databases via the command line.
+#dbbasis
 
-This is a lightweight tool I built for creating, managing, and having full control over databases directly from the terminal. I originally developed it for FreeBSD, but it works just as well on Linux systems. The main goal was to have a fast, zero-dependency utility that gives you total control over database structures without needing a heavy engine running in the background.
+Dbbasis is a command-line tool for managing databases on FreeBSD and Linux. It functions as a zero-dependency script that provides direct control over database structures from the terminal without requiring a background engine or daemon. The tool includes a self-installation routine that moves the script to `/usr/local/bin` so it can be executed as a global command from any directory.
 
-It includes a self-installation routine that automatically moves the script to /usr/local/bin or create the file in /usr/local/bin manually , so once you've set the execution permissions with "chmod +x dbbasis.sh" and "./dbbasis.sh",you can just run dbbasis as a global command from anywhere in your system. It’s designed to be simple, fast, and stay out of your way while you work.
-
+To get started, set the execution permissions with `chmod +x dbbasis.sh` and run the script with `./dbbasis.sh` to initialize the setup. Once installed, the utility is accessed simply by running `dbbasis` in the shell. It is a minimalist, fast tool designed for terminal-based data management while staying out of the way of the system workflow.
 <img width="1920" height="1024" alt="image" src="https://github.com/user-attachments/assets/3b7b0bfa-050b-474f-9523-7c7cffede72b" />
